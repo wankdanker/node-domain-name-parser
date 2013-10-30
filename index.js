@@ -26,6 +26,10 @@ DomainName.prototype = {
 		return this.tokenized[this.tokenized.length - 1 ];
 	}
 	, level : function (index) {
+		if (!index) {
+			return this.tokenized.length;
+		}
+
 		return this.tokenized[index - 1] || null;
 	}
 	, toString : function () {
