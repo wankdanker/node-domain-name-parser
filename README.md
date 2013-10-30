@@ -3,6 +3,8 @@ node-domain-name-parser
 
 A simple domain name parser that parses a string domain name into helpful its helpful components
 
+[![build status](https://secure.travis-ci.org/wankdanker/node-domain-name-parser.png)](http://travis-ci.org/wankdanker/node-domain-name-parser)
+
 install
 =======
 
