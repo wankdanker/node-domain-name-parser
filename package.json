@@ -1,10 +1,9 @@
 {
   "name": "domain-name-parser",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Parse domain name into tld, sld, domain, domainName, host",
   "main": "index.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "tape": "~2.1.0"
   },
