@@ -1,4 +1,6 @@
-module.exports = DomainName;
+module.exports = function (str) {
+	return new DomainName(str);
+};
 
 function DomainName(str) {
 	this.tokenized = (str || "").split(/\./gi).reverse();

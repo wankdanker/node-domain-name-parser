@@ -1,9 +1,9 @@
 var test = require('tape')
-	, DomainName = require('./')
+	, parse = require('./')
 	; 
 
 test('basic test', function (t) {
-	var d = new DomainName('stoner.steve.weedcopter.com');
+	var d = parse('stoner.steve.weedcopter.com');
 	t.equal(d.tld, 'com');
 	t.equal(d.sld, 'weedcopter');
 	t.equal(d.domain, 'steve.weedcopter.com');
@@ -11,4 +11,3 @@ test('basic test', function (t) {
 	t.equal(d.host, 'stoner');
 	t.end();
 });
-
