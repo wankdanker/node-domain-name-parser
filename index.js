@@ -1,4 +1,10 @@
 var lookup = require('country-code-lookup');
+var countries = {}
+
+//Create an index of country codes
+lookup.countries.forEach(function (country) {
+	countries[country.internet] = country;
+});
 
 module.exports = function (str) {
 	return new DomainName(str);
@@ -6,10 +12,10 @@ module.exports = function (str) {
 
 function DomainName(str) {
 	this.tokenized = (str || "").split(/\./gi).reverse();
-  if (lookup.byInternet((this.tokenized[0] || '').toUpperCase())) {
-    var country = this.tokenized.shift();
-    this.tokenized[0] = [this.tokenized[0], country].join('.');
-  }
+	if (countries[(this.tokenized[0] || '').toUpperCase()]) {
+		var country = this.tokenized.shift();
+		this.tokenized[0] = [this.tokenized[0], country].join('.');
+	}
 }
 
 DomainName.prototype = {
