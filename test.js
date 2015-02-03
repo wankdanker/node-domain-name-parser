@@ -13,3 +13,14 @@ test('basic test', function (t) {
 	t.equal(d.level(), 4);
 	t.end();
 });
+test('country-tlds', function(t) {
+  var d = parse('stoner.steve.weedcopter.co.uk');
+  t.equal(d.tld, 'co.uk');
+	t.equal(d.sld, 'weedcopter');
+	t.equal(d.domain, 'steve.weedcopter.co.uk');
+	t.equal(d.domainName, 'weedcopter.co.uk');
+	t.equal(d.host, 'stoner');
+	t.equal(d.level(3), 'steve');
+	t.equal(d.level(), 4);
+	t.end();
+});
