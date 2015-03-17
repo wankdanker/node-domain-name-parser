@@ -10,10 +10,20 @@ module.exports = function (str) {
 	return new DomainName(str);
 };
 
+var isCountryMatch = function isCountryMatch(first, second) {
+  var result = false;
+  if (first != 'CO' && !!countries[first])
+    result = true;
+  else if ('com.co' == [first, second].reverse().join('.').toLowerCase())
+    result = true;
+  return result;
+}
+
 function DomainName(str) {
 	this.tokenized = (str || "").split(/\./gi).reverse();
   var first = (this.tokenized[0] || '').toUpperCase();
-	if (first != 'CO' && countries[first]) {
+  var second = (this.tokenized[1] || '').toUpperCase();
+	if (isCountryMatch(first, second)) {
 		var country = this.tokenized.shift();
 		this.tokenized[0] = [this.tokenized[0], country].join('.');
 	}
