@@ -10,7 +10,7 @@ module.exports = function (str) {
 	return new DomainName(str);
 };
 
-var isCountryMatch = function isCountryMatch(first, second) {
+function isCountryMatch(first, second) {
   var result = false;
   if (first != 'CO' && !!countries[first])
     result = true;
