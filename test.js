@@ -24,6 +24,17 @@ test('country-tlds', function(t) {
   t.equal(d.level(), 4);
   t.end();
 });
+test('.co url', function(t) {
+  var d = parse('stoner.steve.weedcopter.co');
+  t.equal(d.tld, 'co');
+  t.equal(d.sld, 'weedcopter');
+  t.equal(d.domain, 'steve.weedcopter.co');
+  t.equal(d.domainName, 'weedcopter.co');
+  t.equal(d.host, 'stoner');
+  t.equal(d.level(3), 'steve');
+  t.equal(d.level(), 4);
+  t.end();
+});
 test('no error on country', function(t) {
   var d = parse(undefined);
   t.equal(d.tld, null);

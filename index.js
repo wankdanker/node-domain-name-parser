@@ -12,7 +12,8 @@ module.exports = function (str) {
 
 function DomainName(str) {
 	this.tokenized = (str || "").split(/\./gi).reverse();
-	if (countries[(this.tokenized[0] || '').toUpperCase()]) {
+  var first = (this.tokenized[0] || '').toUpperCase();
+	if (first != 'CO' && countries[first]) {
 		var country = this.tokenized.shift();
 		this.tokenized[0] = [this.tokenized[0], country].join('.');
 	}
