@@ -14,7 +14,7 @@ var isCountryMatch = function isCountryMatch(first, second) {
   var result = false;
   if (first != 'CO' && !!countries[first])
     result = true;
-  else if ('com.co' == [first, second].reverse().join('.').toLowerCase())
+  else if ('CO.COM' == [first, second].join('.'))
     result = true;
   return result;
 }
