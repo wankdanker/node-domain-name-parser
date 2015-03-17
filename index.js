@@ -10,11 +10,18 @@ module.exports = function (str) {
 	return new DomainName(str);
 };
 
+var COLOMBIAN_DOMAINS = [
+  'COM',
+  'ORG',
+  'NET',
+  'NOM'
+]
+
 function isCountryMatch(first, second) {
   var result = false;
   if (first != 'CO' && !!countries[first])
     result = true;
-  else if ('CO.COM' == [first, second].join('.'))
+  else if ('CO' == first && COLOMBIAN_DOMAINS.indexOf(second) > -1)
     result = true;
   return result;
 }

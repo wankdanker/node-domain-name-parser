@@ -46,6 +46,39 @@ test('com.co url', function(t) {
   t.equal(d.level(), 4);
   t.end();
 });
+test('org.co url', function(t) {
+  var d = parse('stoner.steve.weedcopter.org.co');
+  t.equal(d.tld, 'org.co');
+  t.equal(d.sld, 'weedcopter');
+  t.equal(d.domain, 'steve.weedcopter.org.co');
+  t.equal(d.domainName, 'weedcopter.org.co');
+  t.equal(d.host, 'stoner');
+  t.equal(d.level(3), 'steve');
+  t.equal(d.level(), 4);
+  t.end();
+});
+test('nom.co url', function(t) {
+  var d = parse('stoner.steve.weedcopter.nom.co');
+  t.equal(d.tld, 'nom.co');
+  t.equal(d.sld, 'weedcopter');
+  t.equal(d.domain, 'steve.weedcopter.nom.co');
+  t.equal(d.domainName, 'weedcopter.nom.co');
+  t.equal(d.host, 'stoner');
+  t.equal(d.level(3), 'steve');
+  t.equal(d.level(), 4);
+  t.end();
+});
+test('net.co url', function(t) {
+  var d = parse('stoner.steve.weedcopter.net.co');
+  t.equal(d.tld, 'net.co');
+  t.equal(d.sld, 'weedcopter');
+  t.equal(d.domain, 'steve.weedcopter.net.co');
+  t.equal(d.domainName, 'weedcopter.net.co');
+  t.equal(d.host, 'stoner');
+  t.equal(d.level(3), 'steve');
+  t.equal(d.level(), 4);
+  t.end();
+});
 test('no error on country', function(t) {
   var d = parse(undefined);
   t.equal(d.tld, null);
