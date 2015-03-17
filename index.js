@@ -21,7 +21,7 @@ function isCountryMatch(first, second) {
   var result = false;
   if (first != 'CO' && !!countries[first])
     result = true;
-  else if ('CO' == first && COLOMBIAN_DOMAINS.indexOf(second) > -1)
+  else if ('CO' == first && ~COLOMBIAN_DOMAINS.indexOf(second))
     result = true;
   return result;
 }
