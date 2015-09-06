@@ -1,13 +1,18 @@
 var lookup = require('country-code-lookup');
-var countries = {}
+var countries = {};
+var defaults;
 
 //Create an index of country codes
 lookup.countries.forEach(function (country) {
   countries[country.internet] = country;
 });
 
-module.exports = function (str) {
-  return new DomainName(str);
+module.exports = function (str, opts) {
+  return new DomainName(str, opts);
+};
+
+module.exports.defaults = function (opts) {
+  defaults = opts;
 };
 
 var COLOMBIAN_DOMAINS = [
@@ -26,11 +31,12 @@ function isCountryMatch(first, second) {
   return result;
 }
 
-function DomainName(str) {
+function DomainName(str, opts) {
+  opts = opts || defaults || {};
   this.tokenized = (str || "").split(/\./gi).reverse();
   var first = (this.tokenized[0] || '').toUpperCase();
   var second = (this.tokenized[1] || '').toUpperCase();
-  if (isCountryMatch(first, second)) {
+  if (opts.countryMerge && isCountryMatch(first, second)) {
     var country = this.tokenized.shift();
     this.tokenized[0] = [this.tokenized[0], country].join('.');
   }
