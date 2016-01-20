@@ -5,6 +5,8 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "country-code-lookup": "0.0.2",
+    "jsonfile": "^2.2.3",
     "tape": "~2.1.0"
   },
   "scripts": {
