@@ -3,9 +3,7 @@
   "version": "2.0.0",
   "description": "Parse domain name into tld, sld, domain, domainName, host",
   "main": "index.js",
-  "dependencies": {
-    "country-code-lookup": "0.0.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "tape": "~2.1.0"
   },

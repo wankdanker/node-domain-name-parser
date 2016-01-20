@@ -1,11 +1,5 @@
-var lookup = require('country-code-lookup');
-var countries = {};
+var countries = require('./country-codes.json');
 var defaults;
-
-//Create an index of country codes
-lookup.countries.forEach(function (country) {
-  countries[country.internet] = country;
-});
 
 module.exports = function (str, opts) {
   return new DomainName(str, opts);
@@ -24,7 +18,7 @@ var COLOMBIAN_DOMAINS = [
 
 function isCountryMatch(first, second) {
   var result = false;
-  if (first != 'CO' && !!countries[first])
+  if (first != 'CO' && countries.indexOf(first) >= 0)
     result = true;
   else if ('CO' == first && ~COLOMBIAN_DOMAINS.indexOf(second))
     result = true;
