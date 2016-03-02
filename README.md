@@ -37,7 +37,7 @@ api
 
 * parse(name, opts);
    * name - string: the domain name you want to parse
-   * opts.mergeCountry - boolean, default false: if TLD is a country TLD (eg: uk, cn, ru) merge it with the next part and treat that as the TLD
+   * opts.countryMerge - boolean, default false: if TLD is a country TLD (eg: uk, cn, ru) merge it with the next part and treat that as the TLD
 * parse.defaults(opts);
    * opts - same as available to parse(). Used as the default for all calls to parse();
 
